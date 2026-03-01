@@ -1,0 +1,29 @@
+{
+  "name": "@fastenhealth/fasten-stitch-element-react",
+  "version": "1.0.0",
+  "description": "React SDK for Fasten Connect – embed health data connections in any React web application",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "clean": "rm -rf dist"
+  },
+  "files": [
+    "dist",
+    "src",
+    "!**/__tests__",
+    "!**/*.test.js"
+  ],
+  "peerDependencies": {
+    "react": ">=18.0.0",
+    "react-dom": ">=18.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.0",
+    "@types/react-dom": "^18.0.0",
+    "typescript": "^5.0.0"
+  },
+  "private": false,
+  "license": "MIT"
+}

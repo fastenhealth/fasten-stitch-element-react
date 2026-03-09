@@ -1,4 +1,4 @@
-import { EventTypes } from '../../constants';
+import { EventTypes } from '../constants';
 
 export interface MessageBusEventPayload {
   event_type: EventTypes;

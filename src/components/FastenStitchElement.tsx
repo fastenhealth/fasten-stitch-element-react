@@ -9,7 +9,7 @@ import React, {
 } from 'react';
 import { ConnectMode, EventTypes } from '../constants';
 import { Base64UrlEncode } from '../utils/base64';
-import type { MessageBusEventPayload } from '../models/message-bus/message-bus-event-payload';
+import type { MessageBusEventPayload } from '../models/message-bus-event-payload';
 
 // ---------------------------------------------------------------------------
 // Environment configuration

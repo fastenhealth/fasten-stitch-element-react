@@ -5,8 +5,8 @@ import userEvent from '@testing-library/user-event';
 import {
   FastenStitchElement,
   type FastenStitchElementHandle,
-} from '../../components/FastenStitchElement';
-import { ConnectMode, EventTypes } from '../../constants';
+} from './FastenStitchElement';
+import { ConnectMode, EventTypes } from '../constants';
 
 // jsdom doesn't implement HTMLDialogElement.showModal / close natively,
 // so we polyfill them for testing.

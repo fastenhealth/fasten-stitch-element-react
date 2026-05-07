@@ -140,7 +140,7 @@ export interface FastenStitchElementProps {
    * Called when the embedded widget sends a postMessage event.
    * Receives the raw `MessageEvent` from the iframe.
    */
-  onEvent?: (event: MessageEvent) => void;
+  onEventBus?: (event: MessageEvent) => void;
 
   // ── Behaviour ───────────────────────────────────────────────────────
   /** When `true`, clicking the backdrop does not close the dialog. */
@@ -245,7 +245,7 @@ export const FastenStitchElement = forwardRef<
     tefcaMode = false,
     tefcaCspPromptForce = false,
     eventTypes,
-    onEvent,
+    onEventBus,
     staticBackdrop = false,
     buttonLabel = 'Share Records',
     buttonClassName,
@@ -411,12 +411,12 @@ export const FastenStitchElement = forwardRef<
       }
 
       // Bubble all other events up
-      onEvent?.(event);
+      onEventBus?.(event);
     }
 
     window.addEventListener('message', handleMessage);
     return () => window.removeEventListener('message', handleMessage);
-  }, [hideModal, onEvent, log]);
+  }, [hideModal, onEventBus, log]);
 
   // ── Render ────────────────────────────────────────────────────────
   return (

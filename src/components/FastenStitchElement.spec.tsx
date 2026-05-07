@@ -398,8 +398,8 @@ describe('FastenStitchElement — query string', () => {
 // ---------------------------------------------------------------------------
 
 describe('FastenStitchElement — postMessage', () => {
-  it('calls onEvent when a postMessage is received from the iframe', async () => {
-    const onEvent = vi.fn();
+  it('calls onEventBus when a postMessage is received from the iframe', async () => {
+    const onEventBus = vi.fn();
     const ref = React.createRef<FastenStitchElementHandle>();
 
     render(
@@ -407,7 +407,7 @@ describe('FastenStitchElement — postMessage', () => {
         ref={ref}
         publicId="test-id"
         environment="development"
-        onEvent={onEvent}
+        onEventBus={onEventBus}
       />,
     );
 
@@ -439,12 +439,12 @@ describe('FastenStitchElement — postMessage', () => {
       window.dispatchEvent(messageEvent);
     });
 
-    expect(onEvent).toHaveBeenCalledTimes(1);
-    expect(onEvent).toHaveBeenCalledWith(messageEvent);
+    expect(onEventBus).toHaveBeenCalledTimes(1);
+    expect(onEventBus).toHaveBeenCalledWith(messageEvent);
   });
 
   it('auto-closes the dialog on EventTypeWidgetClose', async () => {
-    const onEvent = vi.fn();
+    const onEventBus = vi.fn();
     const ref = React.createRef<FastenStitchElementHandle>();
 
     render(
@@ -452,7 +452,7 @@ describe('FastenStitchElement — postMessage', () => {
         ref={ref}
         publicId="test-id"
         environment="development"
-        onEvent={onEvent}
+        onEventBus={onEventBus}
       />,
     );
 
@@ -481,17 +481,17 @@ describe('FastenStitchElement — postMessage', () => {
 
     // Dialog should be closed
     expect(dialog.hasAttribute('open')).toBe(false);
-    // onEvent should NOT be called for widget.close (it returns early)
-    expect(onEvent).not.toHaveBeenCalled();
+    // onEventBus should NOT be called for widget.close (it returns early)
+    expect(onEventBus).not.toHaveBeenCalled();
   });
 
   it('ignores messages not from the iframe', () => {
-    const onEvent = vi.fn();
+    const onEventBus = vi.fn();
     render(
       <FastenStitchElement
         publicId="test-id"
         environment="development"
-        onEvent={onEvent}
+        onEventBus={onEventBus}
       />,
     );
 
@@ -505,11 +505,11 @@ describe('FastenStitchElement — postMessage', () => {
       window.dispatchEvent(messageEvent);
     });
 
-    expect(onEvent).not.toHaveBeenCalled();
+    expect(onEventBus).not.toHaveBeenCalled();
   });
 
   it('ignores non-JSON messages', () => {
-    const onEvent = vi.fn();
+    const onEventBus = vi.fn();
     const ref = React.createRef<FastenStitchElementHandle>();
 
     render(
@@ -517,7 +517,7 @@ describe('FastenStitchElement — postMessage', () => {
         ref={ref}
         publicId="test-id"
         environment="development"
-        onEvent={onEvent}
+        onEventBus={onEventBus}
       />,
     );
 
@@ -539,8 +539,8 @@ describe('FastenStitchElement — postMessage', () => {
       window.dispatchEvent(messageEvent);
     });
 
-    // Should not throw and should not call onEvent
-    expect(onEvent).not.toHaveBeenCalled();
+    // Should not throw and should not call onEventBus
+    expect(onEventBus).not.toHaveBeenCalled();
   });
 });
 

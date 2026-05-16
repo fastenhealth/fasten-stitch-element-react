@@ -20,14 +20,20 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Use Node.js 20
+      - name: Use Node.js 24
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 24
           registry-url: https://registry.npmjs.org
 
       - name: Install dependencies
         run: yarn install
+
+      - name: Run linter
+        run: npm run lint
+
+      - name: Run tests
+        run: npm test
 
       - name: Build package
         run: npm run build

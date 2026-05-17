@@ -143,7 +143,7 @@ describe('FastenStitchElement — dialog open / close', () => {
 
     const iframe = document.querySelector('iframe')!;
     const url = new URL(iframe.src);
-    expect(url.origin).toBe('https://embed.connect-dev.fastenhealth.com');
+    expect(url.origin).toBe('https://embed.connect.fastenlabs.com');
     expect(url.searchParams.get('public-id')).toBe('pub-123');
     expect(url.searchParams.get('external-id')).toBe('ext-456');
   });
@@ -251,7 +251,7 @@ describe('FastenStitchElement — imperative ref', () => {
 
     act(() => ref.current!.show());
     expect(dialog.hasAttribute('open')).toBe(true);
-    expect(iframe.src).toContain('embed.connect-dev.fastenhealth.com');
+    expect(iframe.src).toContain('embed.connect.fastenlabs.com');
 
     act(() => ref.current!.hide());
     expect(dialog.hasAttribute('open')).toBe(false);

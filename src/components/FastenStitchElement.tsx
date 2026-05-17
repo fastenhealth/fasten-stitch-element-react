@@ -18,7 +18,7 @@ import type { MessageBusEventPayload } from '../models/message-bus-event-payload
 /** Known embed environments keyed by name. */
 const EMBED_ENDPOINTS: Record<string, string> = {
   production: 'https://embed.connect.fastenhealth.com',
-  development: 'https://embed.connect-dev.fastenhealth.com',
+  development: 'https://embed.connect.fastenlabs.com',
   local: 'https://localhost:4201',
 };
 

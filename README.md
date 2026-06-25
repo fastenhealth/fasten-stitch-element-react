@@ -34,6 +34,7 @@ function App() {
     <FastenStitchElement
       publicId={CUSTOMER_PUBLIC_ID}
       externalId="user-123"
+      email="person@example.com"
       onEventBus={(event) => {
           console.log('Fasten event:', event.data);
       }}
@@ -51,6 +52,7 @@ The component accepts the following options (matching the Stitch.js widget confi
 |------|------|---------|-------------|
 | `publicId` | `string` | — | **(required)** Your Fasten Connect public ID. |
 | `externalId` | `string` | — | External identifier for the patient/user. |
+| `email` | `string` | — | Patient email used to pre-populate supported forms and sign-in flows. |
 | `reconnectOrgConnectionId` | `string` | — | Existing org-connection-id for reconnect flow. |
 | `brandId` | `string` | — | Pre-select a specific brand. |
 | `portalId` | `string` | — | Pre-select a specific portal. |

@@ -97,6 +97,8 @@ export interface FastenStitchElementProps {
   publicId: string;
   /** An external identifier for the patient / user. */
   externalId?: string;
+  /** Patient email address used to pre-populate supported widget forms and sign-in flows. */
+  email?: string;
 
   // ── Connect mode ────────────────────────────────────────────────────
   /**
@@ -232,6 +234,7 @@ export const FastenStitchElement = forwardRef<
   const {
     publicId,
     externalId,
+    email,
     connectMode,
     reconnectOrgConnectionId,
     brandId,
@@ -280,6 +283,7 @@ export const FastenStitchElement = forwardRef<
     // Identity
     if (publicId) params.set('public-id', publicId);
     if (externalId) params.set('external-id', externalId);
+    if (email) params.set('email', email);
 
     // Connect mode & reconnection
     if (connectMode) params.set('connect-mode', connectMode);
@@ -313,6 +317,7 @@ export const FastenStitchElement = forwardRef<
   }, [
     publicId,
     externalId,
+    email,
     connectMode,
     reconnectOrgConnectionId,
     brandId,

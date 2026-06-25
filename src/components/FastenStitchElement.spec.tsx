@@ -278,13 +278,15 @@ describe('FastenStitchElement — query string', () => {
     return new URL(iframe.src).searchParams;
   }
 
-  it('includes public-id and external-id', async () => {
+  it('includes public-id, external-id, and email', async () => {
     const params = await getIframeSrcParams({
       publicId: 'pub-1',
       externalId: 'ext-2',
+      email: 'person+test@example.com',
     });
     expect(params.get('public-id')).toBe('pub-1');
     expect(params.get('external-id')).toBe('ext-2');
+    expect(params.get('email')).toBe('person+test@example.com');
   });
 
   it('includes connect-mode when specified', async () => {
@@ -383,6 +385,7 @@ describe('FastenStitchElement — query string', () => {
   it('does not include optional params when not provided', async () => {
     const params = await getIframeSrcParams({ publicId: 'pub-1' });
     expect(params.get('external-id')).toBeNull();
+    expect(params.get('email')).toBeNull();
     expect(params.get('connect-mode')).toBeNull();
     expect(params.get('reconnect-org-connection-id')).toBeNull();
     expect(params.get('brand-id')).toBeNull();

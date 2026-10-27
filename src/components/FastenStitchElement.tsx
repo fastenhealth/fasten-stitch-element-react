@@ -135,6 +135,16 @@ export interface FastenStitchElementProps {
   /** Force the CSP selection prompt even when a prior verification exists. */
   tefcaCspPromptForce?: boolean;
 
+  // ── Branding ────────────────────────────────────────────────────────
+  /** Theme for the embedded widget (e.g. "dark"). */
+  brandingTheme?: string;
+  /** Accent color for the embedded widget (e.g. "#E04E3C"). */
+  brandingAccentColor?: string;
+  /** Company name displayed in the embedded widget. */
+  brandingCompanyName?: string;
+  /** URL of the company logo displayed in the embedded widget. */
+  brandingLogoUrl?: string;
+
   // ── Events ──────────────────────────────────────────────────────────
   /** Comma-separated list of event types to subscribe to (e.g. "search.query,patient.connection_success"). */
   eventTypes?: string;
@@ -247,6 +257,10 @@ export const FastenStitchElement = forwardRef<
     showSplash = false,
     tefcaMode = false,
     tefcaCspPromptForce = false,
+    brandingTheme,
+    brandingAccentColor,
+    brandingCompanyName,
+    brandingLogoUrl,
     eventTypes,
     onEventBus,
     staticBackdrop = false,
@@ -309,6 +323,12 @@ export const FastenStitchElement = forwardRef<
       if (showSplash) params.set('show-splash', 'true');
     }
 
+    // Branding
+    if (brandingTheme) params.set('branding-theme', brandingTheme);
+    if (brandingAccentColor) params.set('branding-accent-color', brandingAccentColor);
+    if (brandingCompanyName) params.set('branding-company-name', brandingCompanyName);
+    if (brandingLogoUrl) params.set('branding-logo-url', brandingLogoUrl);
+
     // Events & behaviour
     if (eventTypes) params.set('event-types', eventTypes);
     if (staticBackdrop) params.set('static-backdrop', 'true');
@@ -330,6 +350,10 @@ export const FastenStitchElement = forwardRef<
     showSplash,
     tefcaMode,
     tefcaCspPromptForce,
+    brandingTheme,
+    brandingAccentColor,
+    brandingCompanyName,
+    brandingLogoUrl,
     eventTypes,
     staticBackdrop,
   ]);

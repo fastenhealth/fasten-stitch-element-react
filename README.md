@@ -35,10 +35,6 @@ function App() {
       publicId={CUSTOMER_PUBLIC_ID}
       externalId="user-123"
       email="person@example.com"
-      brandingTheme="dark"
-      brandingAccentColor="#E04E3C"
-      brandingCompanyName="your brand"
-      brandingLogoUrl="https://your-brand.com/assets/logo.svg"
       onEventBus={(event) => {
           console.log('Fasten event:', event.data);
       }}
@@ -68,10 +64,6 @@ The component accepts the following options (matching the Stitch.js widget confi
 | `showSplash` | `boolean` | `false` | Show splash screen before search. |
 | `tefcaMode` | `boolean` | `false` | Enable TEFCA mode (identity verification + record locator). |
 | `tefcaCspPromptForce` | `boolean` | `false` | Force CSP selection prompt in TEFCA mode. |
-| `brandingTheme` | `string` | — | Widget theme, e.g. `"dark"`. Sent as `branding-theme`. |
-| `brandingAccentColor` | `string` | — | Widget accent color, e.g. `"#E04E3C"`. Sent as `branding-accent-color`. |
-| `brandingCompanyName` | `string` | — | Company name displayed in the widget. Sent as `branding-company-name`. |
-| `brandingLogoUrl` | `string` | — | Company logo URL. Sent as `branding-logo-url`. |
 | `eventTypes` | `string` | — | Comma-separated event types to subscribe to. |
 | `onEventBus` | `(event: MessageEvent) => void` | — | Callback for widget postMessage events. |
 | `staticBackdrop` | `boolean` | `false` | Prevent closing on backdrop click. |

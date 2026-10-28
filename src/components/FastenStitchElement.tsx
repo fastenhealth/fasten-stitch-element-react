@@ -324,10 +324,10 @@ export const FastenStitchElement = forwardRef<
     }
 
     // Branding
-    if (brandingTheme) params.set('branding-theme', brandingTheme);
-    if (brandingAccentColor) params.set('branding-accent-color', brandingAccentColor);
-    if (brandingCompanyName) params.set('branding-company-name', brandingCompanyName);
-    if (brandingLogoUrl) params.set('branding-logo-url', brandingLogoUrl);
+    if (brandingTheme) params.set('theme', brandingTheme);
+    if (brandingAccentColor) params.set('accent-color', brandingAccentColor);
+    if (brandingCompanyName) params.set('company-name', brandingCompanyName);
+    if (brandingLogoUrl) params.set('logo-url', brandingLogoUrl);
 
     // Events & behaviour
     if (eventTypes) params.set('event-types', eventTypes);

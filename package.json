@@ -1,6 +1,6 @@
 {
   "name": "@fastenhealth/fasten-stitch-element-react",
-  "version": "5.0.0",
+  "version": "5.0.1",
   "description": "React SDK for Fasten Connect – embed health data connections in any React web application",
   "bugs": {
     "url": "https://github.com/fastenhealth/fasten-stitch-element-react/issues"
